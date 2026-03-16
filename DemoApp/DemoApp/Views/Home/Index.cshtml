@@ -1,0 +1,47 @@
+﻿@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+
+@model DemoApp.Models.CalculatorViewModel
+
+@{
+    ViewBag.Title = "Calculator";
+}
+
+<div class="text-center mt-5">
+    <h1 class="display-4">Simple Calculator</h1>
+</div>
+
+
+
+<div class="row justify-content-center">
+    <div class="col-md-4 card p-4 shadow-sm">
+        <form asp-action="Index" method="post">
+            <div class="form-group mb-3">
+                <label class="form-label">First Number</label>
+                <input asp-for="Number1" class="form-control" type="number" step="any" required />
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="form-label">Second Number</label>
+                <input asp-for="Number2" class="form-control" type="number" step="any" required />
+            </div>
+
+            <div class="d-flex justify-content-between mb-4">
+                <button type="submit" name="Action" value="Add" class="btn btn-outline-primary">Add (+)</button>
+                <button type="submit" name="Action" value="Subtract" class="btn btn-outline-primary">Sub (-)</button>
+                <button type="submit" name="Action" value="Multiply" class="btn btn-outline-primary">Mul (×)</button>
+                <button type="submit" name="Action" value="Divide" class="btn btn-outline-primary">Div (÷)</button>
+            </div>
+
+            <div class="alert alert-info text-center">
+                <h3>Result: @Model.Result</h3>
+            </div>
+        </form>
+    </div>
+</div>
